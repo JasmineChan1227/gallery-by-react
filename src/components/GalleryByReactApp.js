@@ -19,12 +19,33 @@ imageDatas = (function genImageURL(imageDatasArr){
     }
     return imageDatasArr;
 })(imageDatas);
+var ImgFigure = React.createClass({
+  render: function(){
+    return (
+      <figure>
+        <img src={this.props.data.imageURL}
+            alt={this.props.data.title}/>
+        <figcaption>
+          <h2>{this.props.data.title}</h2>
+        </figcaption>
+      </figure>
+    );
+  }
+});
 var GalleryByReactApp = React.createClass({
   render: function() {
-    return (
-    <section className = "stage">
-      <section className = "img-sec"> </section>
-      <nav className = "controller-nav"> </nav>
+    var controllerUnits = [];
+    var imgFigures = [];
+      imageDatas.forEach(
+        function(element) {
+          imgFigures.push(<ImgFigure data={element} />); });
+    return ( <section className = "stage">
+      <section className = "img-sec">
+          {imgFigures}
+      </section>
+      <nav className = "controller-nav">
+          {controllerUnits}
+       </nav>
     </section>
     );
   }
