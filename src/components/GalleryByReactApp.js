@@ -118,7 +118,7 @@ var GalleryByReactApp = React.createClass({
    }
 
    imgsArrangeArr.splice(centerIndex, 0, centerImg);
-   this.setState({//触发重新渲染
+   this.setState({//触发重新渲染a a a a 
      imgsArrangeArr: imgsArrangeArr
    });
   },
